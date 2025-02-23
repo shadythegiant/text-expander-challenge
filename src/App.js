@@ -1,3 +1,4 @@
+import { useState } from "react";
 export default function App() {
   return (
     <div>
@@ -32,6 +33,28 @@ export default function App() {
   );
 }
 
-function TextExpander() {
-  return <div>TODO</div>;
+function TextExpander({
+  collapsedNumWords = 10,
+        expandButtonText = 'Show More',
+        collapseButtonText = 'Show Less',
+        buttonColor,
+        expanded = false, 
+        className, 
+        children
+}) {
+
+  // state 
+  const[isExpanded, setIsExpanded] = useState(expanded); 
+  const displayText = isExpanded ? children : children.split(' ').slice(collapsedNumWords).join(' ') + '...';  
+
+  // 
+
+  function handleIsExpended() {
+    setIsExpanded(expanded => !expanded)
+  }
+ 
+
+  //
+
+  return <div className={className}><span>{displayText}</span> <button onClick={handleIsExpended}>{isExpanded ? collapseButtonText : expandButtonText}</button></div>;
 }

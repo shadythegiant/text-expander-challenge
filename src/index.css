@@ -5,6 +5,11 @@
 
 body {
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .box {
@@ -12,4 +17,15 @@ body {
   border: 1px solid #ccc;
   border-radius: 7px;
   background-color: #f7f7f7;
+}
+
+button  {
+  padding: .3rem .4rem .3rem;
+  border: none;
+  background-color: lightgray;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgba(211, 211, 211, 0.192);
+  }
 }
